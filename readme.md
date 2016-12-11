@@ -15,7 +15,7 @@
 
     - 执行命令
 
-    - `node extends.js`
+    - `node index.js`
     
     - 或者运行批处理文件
     
