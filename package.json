@@ -1,0 +1,11 @@
+{
+  "name": "fuda-zaoan",
+  "version": "0.0.1",
+  "scripts": {
+    "go": "node index.js"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "request": "^2.79.0"
+  }
+}
