@@ -19,5 +19,10 @@
     
     - 或者运行批处理文件
     
-    - `start.bat`__
+    - `start.bat`
+
+## 效果
+    
+![](screenshot/preview.png)
+
 

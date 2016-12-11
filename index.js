@@ -37,11 +37,11 @@ function sign(m_user) {
         request(getOptions({
             method: "POST",
             url: baseUrl + "Login/", //2.登录
-            form: extend(true, {}, {Force: "undefined"}, m_user)
+            form: extend(true, {}, {Force: true}, m_user)
         }), function (error, response, body) {
             var jsonBody = JSON.parse(body);
             if (jsonBody.Success) {
-                console.log("登录成功");
+                console.log("登录成功\n");
             }
             request(getOptions({
                 method: "POST",
@@ -54,7 +54,7 @@ function sign(m_user) {
                 try {
                     var jsonBody = JSON.parse(body);
                     if (jsonBody.Success) {
-                        console.log("签到成功");
+                        console.log("签到成功\n");
                         return;
                     }
                 } catch (e) {
@@ -62,9 +62,9 @@ function sign(m_user) {
 
                 var failLog = "";
 
-                if (body.indexOf("Object moved") != -1) {
-                    failLog = "账户在别处已登录， ";
-                }
+                // if (body.indexOf("Object moved") != -1) {
+                //     failLog = "账户在别处已登录， ";
+                // }
 
                 try {
                     failLog += "签到失败，response body：\n" + JSON.stringify(JSON.parse(body))
@@ -72,7 +72,7 @@ function sign(m_user) {
                     failLog += "签到失败，response body：\n" + body
                 }
 
-                console.log(failLog);
+                console.log(failLog + "\n");
 
                 request(getOptions({
                     method: "GET",
