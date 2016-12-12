@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">签到</string>
+    <string name="action_settings">签到</string>
+    <string name="msg_nfcon">是否打开NFC</string>
+    <string name="msg_nfcoff">是否关闭NFC</string>
+    <string name="ok">确认</string>
+    <string name="cancel">取消</string>
+    <string name="colse_app">退出</string>
+    <string name="info">提示</string>
+    <string name="return_">返回</string>
+    <string name="start">开始签到</string>
+    <string name="open_nfc_please">请打开NFC，点击返回</string>
+    <string name="close_nfc_please">请关闭NFC</string>
+    <string name="author">©2016 黑溜儿\nheiliuer@foxmail.com</string>
+    <string name="text_close_nfc">签到完关闭NFC</string>
+    <string name="text_auto_click_card">自动点击卡面</string>
+    <string name="text_auto_click_in_locked">定时自动签到</string>
+    <string name="opened_service">已开启自动签到的后台服务</string>
+    <string name="closed_service">已关闭自动签到的后台服务</string>
+    <string name="text_open_card_on_enter">进入自动签到</string>
+    <string name="hint_UserID">学号</string>
+    <string name="hint_UserKey">密码</string>
+    <string name="empty_user_login_params">学号或者密码为空</string>
+</resources>

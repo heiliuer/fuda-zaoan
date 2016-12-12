@@ -1,32 +1,4 @@
+# 福大早安，自动签到程序
 
-# 早安福大，自动签到程序
-
-## 如何使用
-
-- 安装 nodejs
-
-- 安装依赖库,执行命令
-
-    - `npm install --registry=https://registry.npm.taobao.org`
-
-- 配置用户账户，编辑 `user.js` 文件
-
-- 开始签到
-
-    - 执行命令
-
-    - `node index.js`
-    
-    - 或者运行批处理文件
-    
-    - `start.bat`
-
-## 效果
-    
-![](screenshot/preview.png)
-
-## windows 定时执行
-
-[参考](https://yq.aliyun.com/articles/5620)
-
-
+- [pc端](fuda-zaoan-pc "fuda-zaoan-pc")
+- [android端](fuda-zaoan-android "fuda-zaoan-android")
