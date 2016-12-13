@@ -29,6 +29,58 @@ function getOptions(options) {
 function unUnicode(body) {
     return JSON.stringify(JSON.parse(body));
 }
+function beginSign() {
+    request(getOptions({
+        method: "POST",
+        url: baseUrl + "App/Account/User/Sign",//2.登录
+        form: {
+            Second: "2.6",
+            Wrong: "1"
+        }
+    }), function (error, response, body) {
+        try {
+            var jsonBody = JSON.parse(body);
+            if (jsonBody.Success) {
+                console.log("签到成功\n");
+                return;
+            }
+        } catch (e) {
+        }
+
+        var failLog = "";
+
+        // if (body.indexOf("Object moved") != -1) {
+        //     failLog = "账户在别处已登录， ";
+        // }
+
+        try {
+            failLog += "签到失败，response body：\n" + unUnicode(body)
+        } catch (e) {
+            var confirmerror = /confirmerror\('(.*)'\)/.exec("body");
+            if (confirmerror && confirmerror.length > 1) {
+                failLog += "签到失败，confirmerror：\n" + confirmerror[1];
+            } else {
+                var showerror = /show\('(.*)'\)/.exec("body");
+                if (showerror && showerror.length > 1) {
+                    failLog += "签到结果未知，show：\n" + show[1];
+                } else {
+                    failLog += "签到失败，response body：\n" + body
+                }
+            }
+        }
+
+        console.log(failLog + "\n");
+
+        request(getOptions({
+            method: "GET",
+            url: baseUrl + "App/Default?Logout=true", //3.登出
+        }), function (error, response, body) {
+            console.log("账户已退出");
+            console.log("########");
+        });
+
+    });
+}
 function sign(m_user) {
     console.log("########");
     console.log("账户" + user.UserID + "签到....\n");
@@ -45,59 +97,11 @@ function sign(m_user) {
             var jsonBody = JSON.parse(body);
             if (jsonBody.Success) {
                 console.log("登录成功\n");
+                beginSign();
             } else {
                 console.log("登录失败\n" + unUnicode(body) + "\n");
             }
-            request(getOptions({
-                method: "POST",
-                url: baseUrl + "App/Account/User/Sign",//2.登录
-                form: {
-                    Second: "2.6",
-                    Wrong: "1"
-                }
-            }), function (error, response, body) {
-                try {
-                    var jsonBody = JSON.parse(body);
-                    if (jsonBody.Success) {
-                        console.log("签到成功\n");
-                        return;
-                    }
-                } catch (e) {
-                }
 
-                var failLog = "";
-
-                // if (body.indexOf("Object moved") != -1) {
-                //     failLog = "账户在别处已登录， ";
-                // }
-
-                try {
-                    failLog += "签到失败，response body：\n" + unUnicode(body)
-                } catch (e) {
-                    var confirmerror = /confirmerror\('(.*)'\)/.exec("body");
-                    if (confirmerror && confirmerror.length > 1) {
-                        failLog += "签到失败，confirmerror：\n" + confirmerror[1];
-                    } else {
-                        var showerror = /show\('(.*)'\)/.exec("body");
-                        if (showerror && showerror.length > 1) {
-                            failLog += "签到结果未知，show：\n" + show[1];
-                        } else {
-                            failLog += "签到失败，response body：\n" + body
-                        }
-                    }
-                }
-
-                console.log(failLog + "\n");
-
-                request(getOptions({
-                    method: "GET",
-                    url: baseUrl + "App/Default?Logout=true", //3.登出
-                }), function (error, response, body) {
-                    console.log("账户已退出");
-                    console.log("########");
-                });
-
-            });
         });
     });
 }
