@@ -26,6 +26,9 @@ function getOptions(options) {
 }
 
 
+function unUnicode(body) {
+    return JSON.stringify(JSON.parse(body));
+}
 function sign(m_user) {
     console.log("########");
     console.log("账户" + user.UserID + "签到....\n");
@@ -42,6 +45,8 @@ function sign(m_user) {
             var jsonBody = JSON.parse(body);
             if (jsonBody.Success) {
                 console.log("登录成功\n");
+            } else {
+                console.log("登录失败\n" + unUnicode(body) + "\n");
             }
             request(getOptions({
                 method: "POST",
@@ -67,9 +72,19 @@ function sign(m_user) {
                 // }
 
                 try {
-                    failLog += "签到失败，response body：\n" + JSON.stringify(JSON.parse(body))
+                    failLog += "签到失败，response body：\n" + unUnicode(body)
                 } catch (e) {
-                    failLog += "签到失败，response body：\n" + body
+                    var confirmerror = /confirmerror\('(.*)'\)/.exec("body");
+                    if (confirmerror && confirmerror.length > 1) {
+                        failLog += "签到失败，confirmerror：\n" + confirmerror[1];
+                    } else {
+                        var showerror = /show\('(.*)'\)/.exec("body");
+                        if (showerror && showerror.length > 1) {
+                            failLog += "签到结果未知，show：\n" + show[1];
+                        } else {
+                            failLog += "签到失败，response body：\n" + body
+                        }
+                    }
                 }
 
                 console.log(failLog + "\n");
