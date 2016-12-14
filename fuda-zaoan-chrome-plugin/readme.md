@@ -2,7 +2,7 @@
 
 ## 如何使用
 
-1. 打开chrome内核的浏览器，访问地址 [chrome://extensions/](chrome://extensions/)
+1. 打开chrome内核的浏览器，访问地址  [chrome://extensions/](chrome://extensions/)
 
 2. 下载 [src.crx](src.crx) 到本地，拖拉到1步打开的页面
 
