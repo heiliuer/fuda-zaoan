@@ -56,13 +56,13 @@ function beginSign() {
         try {
             failLog += "签到失败，response body：\n" + unUnicode(body)
         } catch (e) {
-            var confirmerror = /confirmerror\('(.*)'\)/.exec("body");
+            var confirmerror = /confirmerror\('(.*)'\)/.exec(body);
             if (confirmerror && confirmerror.length > 1) {
                 failLog += "签到失败，confirmerror：\n" + confirmerror[1];
             } else {
-                var showerror = /show\('(.*)'\)/.exec("body");
+                var showerror = /show\('(.*)'\)/.exec(body);
                 if (showerror && showerror.length > 1) {
-                    failLog += "签到结果未知，show：\n" + show[1];
+                    failLog += "签到结果未知，show：\n" + showerror[1];
                 } else {
                     failLog += "签到失败，response body：\n" + body
                 }
