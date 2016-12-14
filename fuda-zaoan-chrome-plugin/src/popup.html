@@ -6,7 +6,41 @@
 </head>
 <style>
     body {
-        min-width: 300px;
+        min-width: 280px;
+    }
+
+    .bg3{
+        background-color: #fff;
+        background-image:
+                linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+                linear-gradient(#eee .1em, transparent .1em);
+        background-size: 100% 1.2em;
+    }
+    .bg1{
+        background-color:silver;
+        background-image:
+                radial-gradient(circle at 100% 150%, silver 24%, white 25%, white 28%, silver 29%, silver 36%, white 36%, white 40%, transparent 40%, transparent),
+                radial-gradient(circle at 0    150%, silver 24%, white 25%, white 28%, silver 29%, silver 36%, white 36%, white 40%, transparent 40%, transparent),
+                radial-gradient(circle at 50%  100%, white 10%, silver 11%, silver 23%, white 24%, white 30%, silver 31%, silver 43%, white 44%, white 50%, silver 51%, silver 63%, white 64%, white 71%, transparent 71%, transparent),
+                radial-gradient(circle at 100% 50%, white 5%, silver 6%, silver 15%, white 16%, white 20%, silver 21%, silver 30%, white 31%, white 35%, silver 36%, silver 45%, white 46%, white 49%, transparent 50%, transparent),
+                radial-gradient(circle at 0    50%, white 5%, silver 6%, silver 15%, white 16%, white 20%, silver 21%, silver 30%, white 31%, white 35%, silver 36%, silver 45%, white 46%, white 49%, transparent 50%, transparent);
+        background-size:100px 50px;
+    }
+    .bg2{
+        background:repeating-linear-gradient(-45deg, #de9dd4, #de9dd4 5px, white 5px, white 10px);
+    }
+
+    .bg4 {
+        background: linear-gradient(to bottom, rgba(56, 121, 217, 0.24) , #fcfdfd);
+    }
+
+    .bg5{
+        background:radial-gradient(#77d19e,#46c17b);
+    }
+
+
+    .bg6{
+        background:repeating-radial-gradient(#b8e7bf, #b8e7bf 5px, white 5px, white 10px);
     }
 
     * {
@@ -58,24 +92,30 @@
         padding: 0 20px;
         color: #777;
     }
+
+    .user-form .info a {
+        font-weight: normal;
+        font-size: 12px;
+    }
+
     .user-form .info.copyright {
         color: #999;
     }
 </style>
-<body>
+<body class="bg4">
 <h3 align="center" class="title">福大早安</h3>
 <form class="user-form" id="user-form">
     <div>
-        <label for="userid">学号</label><input maxlength="9" type="text" value="" id="userid"/>
+        <!--<label for="userid">学号</label>--><input maxlength="9" type="text" value="" placeholder="学号" id="userid"/>
     </div>
     <div>
-        <label>密码</label><input maxlength="100" type="password" value="" id="userkey"/>
+        <!--<label>密码</label>--><input maxlength="100" type="password" value="" placeholder="密码" id="userkey"/>
     </div>
     <div>
         <label class="label-check" title="启用和关闭自动签到功能" for="enable">启用</label><input type="checkbox" id="enable"/>
         <button class="btn-submit" type="submit">保存</button>
     </div>
-    <h3 class="info">启用，保存完成后，<br> 重新进入 <a href="http://zao.fzu4.com/">签到页面</a>，会自动签到!</h3>
+    <h3 class="info">启用，保存完成后，<br> 重新进入 <a href="http://zao.fzu4.com/" target="_blank">签到页面</a>，会自动签到!</h3>
     <h3 class="info copyright">
         Copyright©2016 <a href="https://github.com/heiliuer">heiliuer</a>
     </h3>
