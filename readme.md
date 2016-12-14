@@ -2,3 +2,4 @@
 
 - [pc端](fuda-zaoan-pc "fuda-zaoan-pc")
 - [android端](fuda-zaoan-android "fuda-zaoan-android")
+- [chrome浏览器端](fuda-zaoan-chrome-plugin "fuda-zaoan-chrome-plugin")

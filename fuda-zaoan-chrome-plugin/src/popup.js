@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 var $form = $("#user-form");
 var $userkey = $("#userkey");
 var $userid = $("#userid");
+var $enable = $("#enable");
 
 
 function setStorage(data) {
@@ -20,14 +21,16 @@ function getStorage(callback) {
 
 
 getStorage(function (data) {
-    $userkey.val(data.userkey)
-    $userid.val(data.userid)
+    $userkey.val(data.userkey);
+    $userid.val(data.userid);
+    $enable.prop("checked", data.enable);
 });
 
 $form.on("submit", function () {
     setStorage({
         userkey: $userkey.val(),
-        userid: $userid.val()
+        userid: $userid.val(),
+        enable: $enable.prop("checked")
     })
     setTimeout(function () {
         chrome.runtime.reload();
