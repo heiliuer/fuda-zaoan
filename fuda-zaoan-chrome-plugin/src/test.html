@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Blacklist Checking</title>
+<link rel="stylesheet" type="text/css" href="popup.css" />
+</head>
+<body>
+	<input type="text" id="key" />
+	<div id="holder"></div>
+	<div id="status"></div>
+</body>
+<div style="display: none;" id="template">
+	<h5>翻译：</h5>
+	<ul data-nano-translation>
+		<li data-nano-key-item></li>
+	</ul>
+	<h5>详情：</h5>
+	<div data-nano-basic>
+		<h6>发音：</h6>
+		<p data-nano-phonetic></p>
+		<h6>释义：</h6>
+		<ul data-nano-explains>
+			<li data-nano-key-item></li>
+		</ul>
+	</div>
+	<h5>网络释义：</h5>
+	<ul data-nano-web>
+		<li data-nano-key-item>
+			<p data-nano-key></p>
+			<p data-nano-value></p>
+		</li>
+	</ul>
+</div>
+<div id="template2" style="">
+	<p data-nano-name>姓名：</p>
+	<ul data-nano-students>
+		<li data-nano-key-item><span data-nano-name>姓名：</span><span
+			data-nano-age>年龄：</span></li>
+	</ul>
+	<p data-nano-clazz>班级：</p>
+</div>
+<script src="jquery-2.0.0.min.js"></script>
+<script src="popup.js"></script>
+<script type="text/javascript">
+	var data = {
+		name : 'wanghao',
+		clazz : 'xingongchan',
+		students : [ {
+			name : 'liubo',
+			age : 23
+		}, {
+			name : 'heiliuer',
+			age : 22
+		} ]
+	};
+	nano($("#template2"), data);
+</script>
+</html>
