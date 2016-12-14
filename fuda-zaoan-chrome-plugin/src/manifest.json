@@ -13,11 +13,12 @@
       "19": "img/logo.png",
       "38": "img/logo.png"
     },
-    "default_title": "简词典",
+    "default_title": "福大早安",
     "default_popup": "popup.html"
   },
   "permissions": [
     "tabs",
+    "debugger",
     "storage",
     "<all_urls>"
   ],

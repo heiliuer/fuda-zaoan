@@ -20,12 +20,12 @@ var $enable = $("#enable");
 
 function setStorage(data) {
     chrome.storage.sync.set({"data": data}, function () {
-        console.log("save data:", data);
+        // console.log("save data:", data);
     });
 }
 function getStorage(callback) {
     chrome.storage.sync.get('data', function (data) {
-        console.log("get data:", data.data);
+        // console.log("get data:", data.data);
         callback(data.data)
     });
 }

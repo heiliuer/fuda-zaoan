@@ -15,3 +15,7 @@
     });
 };
 chrome.tabs.onUpdated.addListener(tabUpdated);
+
+
+
+

@@ -6,6 +6,44 @@
     }
 });
 
+// chrome.storage.sync.get('data', function (data) {
+//     alert(JSON.stringify(data))
+//     if (data.data /*&& data.data.enable*/) {
+//         alert(1)
+//         chrome.tabs.getSelected(null, function (tab) {
+//             var tabId = tab.id;
+//             var protocolVersion = '1.0';
+//             chrome.debugger.attach({
+//                 tabId: tabId
+//             }, protocolVersion, function () {
+//                 if (chrome.runtime.lastError) {
+//                     console.log(chrome.runtime.lastError.message);
+//                     return;
+//                 }
+//                 // 2. Debugger attached, now prepare for modifying the UA
+//                 chrome.debugger.sendCommand({
+//                     tabId: tabId
+//                 }, "Network.enable", {}, function (response) {
+//                     alert(2)
+//                     // Possible response: response.id / response.error
+//                     // 3. Change the User Agent string!
+//                     chrome.debugger.sendCommand({
+//                         tabId: tabId
+//                     }, "Network.setUserAgentOverride", {
+//                         userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.7.0 MicroMessenger/6.3.9 Language/zh_CN webview/0'
+//                     }, function (response) {
+//                         // Possible response: response.id / response.error
+//                         // 4. Now detach the debugger (this restores the UA string).
+//                         chrome.debugger.detach({tabId: tabId});
+//                         alert(response.id + response.error)
+//                     });
+//                 });
+//             });
+//         })
+//
+//     }
+// });
+
 // chrome.runtime.onConnect.addListener(function(port) {
 //     console.assert(port.name == "knockknock");
 //     port.onMessage.addListener(function(msg) {
@@ -20,6 +58,7 @@
 
 
 
+
 function getStorage(callback) {
     chrome.storage.sync.get('data', function (data) {
         console.log("get data:", data.data);
@@ -29,7 +68,10 @@ function getStorage(callback) {
 
 getStorage(function (data) {
     loadData(data);
-})
+});
+
+
+chrome.extension.sendRequest({action: "change-user-agent"});
 
 
 function loadData(DATA) {
@@ -76,6 +118,9 @@ function loadData(DATA) {
     };
 
     if (DATA.enable && window.location.host == "zao.fzu4.com") {
+
+
+
         window.onload = function () {
             var pathname = location.pathname;
             if (pathname == "/Login/") {
