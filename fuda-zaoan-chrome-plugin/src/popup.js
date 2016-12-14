@@ -1,5 +1,16 @@
-document.addEventListener('DOMContentLoaded', function () {
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     var port = chrome.runtime.connect({name: "knockknock"});
+//     port.postMessage({joke: "Knock knock"});
+//     port.onMessage.addListener(function (msg) {
+//         alert(msg);
+//         if (msg.question == "Who's there?") {
+//             port.postMessage({answer: "Madame"});
+//         }
+//         else if (msg.question == "Madame who?") {
+//             port.postMessage({answer: "Madame... Bovary"});
+//         }
+//     });
+// });
 
 var $form = $("#user-form");
 var $userkey = $("#userkey");
@@ -20,21 +31,26 @@ function getStorage(callback) {
 }
 
 
+
+
 getStorage(function (data) {
     $userkey.val(data.userkey);
     $userid.val(data.userid);
     $enable.prop("checked", data.enable);
 });
 
+
+
 $form.on("submit", function () {
     setStorage({
         userkey: $userkey.val(),
         userid: $userid.val(),
         enable: $enable.prop("checked")
-    })
-    setTimeout(function () {
-        chrome.runtime.reload();
-    }, 200)
+    });
+    chrome.runtime.sendMessage({
+        type: "refresh"
+    });
+    window.close();
     return false;
 })
 

@@ -4,15 +4,81 @@
     <title>Blacklist Checking</title>
     <link rel="stylesheet" type="text/css" href="css/popup.css"/>
 </head>
+<style>
+    body {
+        min-width: 300px;
+    }
+
+    * {
+        color: #555;
+        font-family: "微软雅黑";
+        font-size: 13px
+    }
+
+    .title {
+        font-size: 17px;
+    }
+
+    .user-form label {
+        font-size: 13px;
+        padding: 0 7px;
+    }
+
+    .user-form label.label-check {
+        padding: 0;
+        vertical-align: middle;
+    }
+
+    .user-form label.label-check+input{
+        vertical-align: middle;
+    }
+    .user-form input+button{
+        vertical-align: middle;
+    }
+
+    .user-form > div {
+        text-align: center;
+        padding: 10px 5px;
+    }
+
+    .user-form .btn-submit {
+        width: 50px;
+        background-color: #3879D9;
+        color: #fff;
+        border: none;
+        padding: 3px 5px;
+        border-radius: 4px;
+        font-size: 12px;
+    }
+
+    .user-form .info {
+        font-weight: normal;
+        font-size: 12px;
+        text-align: center;
+        padding: 0 20px;
+        color: #777;
+    }
+    .user-form .info.copyright {
+        color: #999;
+    }
+</style>
 <body>
-<h3>福大早安</h3>
-<form id="user-form">
-    <label>学号</label><input type="text" value="" id="userid"/>
-    <label>密码</label><input type="password" value="" id="userkey"/>
-    <label>启用</label><input type="checkbox" id="enable"/>
-    <button type="submit">保存</button>
-    <br/>
-    <b>保存完成后，重新进入<a href="http://zao.fzu4.com/">签到页面</a>，会自动完成签到</b>
+<h3 align="center" class="title">福大早安</h3>
+<form class="user-form" id="user-form">
+    <div>
+        <label for="userid">学号</label><input maxlength="9" type="text" value="" id="userid"/>
+    </div>
+    <div>
+        <label>密码</label><input maxlength="100" type="password" value="" id="userkey"/>
+    </div>
+    <div>
+        <label class="label-check" title="启用和关闭自动签到功能" for="enable">启用</label><input type="checkbox" id="enable"/>
+        <button class="btn-submit" type="submit">保存</button>
+    </div>
+    <h3 class="info">启用，保存完成后，<br> 重新进入 <a href="http://zao.fzu4.com/">签到页面</a>，会自动签到!</h3>
+    <h3 class="info copyright">
+        Copyright©2016 <a href="https://github.com/heiliuer">heiliuer</a>
+    </h3>
 </form>
 
 </body>

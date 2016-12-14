@@ -1,8 +1,23 @@
-﻿chrome.runtime.sendMessage({
-    type: "select",
-    data: "Hello"
+﻿chrome.runtime.onMessage.addListener(function (msg, sender, sendRequest) {
+    switch (msg.type) {
+        case 'refresh' :
+            window.location.reload();
+            break;
+    }
 });
-// alert("send msg");
+
+// chrome.runtime.onConnect.addListener(function(port) {
+//     console.assert(port.name == "knockknock");
+//     port.onMessage.addListener(function(msg) {
+//         if (msg.joke == "Knock knock")
+//             port.postMessage({question: "Who's there?"});
+//         else if (msg.answer == "Madame")
+//             port.postMessage({question: "Madame who?"});
+//         else if (msg.answer == "Madame... Bovary")
+//             port.postMessage({question: "I don't get it."});
+//     });
+// });
+
 
 
 function getStorage(callback) {
