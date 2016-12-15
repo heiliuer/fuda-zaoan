@@ -82,7 +82,7 @@ function loadData(DATA) {
 
         //防止提示异地登录
         setTimeout(function () {
-            $("#layui-layer1 > div.layui-layer-btn > a.layui-layer-btn0.ui-link").click();
+             $("#layui-layer2 > div.layui-layer-btn > a.layui-layer-btn0").click();
         }, 200);
     }
 
