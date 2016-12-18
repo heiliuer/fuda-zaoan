@@ -21,7 +21,6 @@
     </style>
 
 
-
     <style name="CustomActionBarStyle" parent="@style/Widget.AppCompat.ActionBar">
         <item name="android:titleTextStyle">@style/MyTitleTextStyle</item>
     </style>
@@ -37,5 +36,9 @@
         <item name="elevation">0dp</item>
 
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
